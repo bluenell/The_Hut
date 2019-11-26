@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GAManager : MonoBehaviour
 {
+	PlayerController playerController;
+
     public int popSize, 
                surSize, 
                evolveMax;
@@ -16,21 +18,22 @@ public class GAManager : MonoBehaviour
     private MusicLibrary music;
     private List<Performance> population;
 
-    private bool playing;
+    public bool playing;
 
     private void Start()
     {
+		playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         music = GetComponent<MusicLibrary>();
         population = new List<Performance>();
-        target = MusicCollection.songs[2];
+        target = MusicCollection.songs[0];
         CreateInitialPopulation();
         AssessPopulation();
-        playing = true;
+        playing = false;
     }
 
     private void Update()
     {
-        if (!playing)
+        if (!playing && playerController.canPlay)
         {
             if (Input.GetKeyDown("e"))
             {
