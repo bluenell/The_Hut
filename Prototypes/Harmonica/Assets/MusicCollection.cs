@@ -22,6 +22,14 @@ public static class MusicCollection
             {  4, -1,  5, -1,  6, -1,  8, -1,  8,  8, -1,  8,  8, -1,  9, -1,  6, -1,  8, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0}
         };
 
+	public static int[,] smokey = new int[,]
+		{
+			{ },
+			{ },
+			{ },
+			{ },
+		};	
+
     
     
     
