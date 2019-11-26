@@ -1016,6 +1016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 250
+  canPlay: 0
 --- !u!50 &1449533471
 Rigidbody2D:
   serializedVersion: 4
@@ -1230,6 +1231,7 @@ MonoBehaviour:
   popSize: 100
   surSize: 15
   evolveMax: 40
+  songIndex: 2
   mutationRate: 0.05
   playing: 0
 --- !u!1 &2048223981

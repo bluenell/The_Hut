@@ -9,7 +9,8 @@ public class GAManager : MonoBehaviour
 
     public int popSize, 
                surSize, 
-               evolveMax;
+               evolveMax,
+			   songIndex;
 
     public float mutationRate;
 
@@ -25,7 +26,7 @@ public class GAManager : MonoBehaviour
 		playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         music = GetComponent<MusicLibrary>();
         population = new List<Performance>();
-        target = MusicCollection.songs[0];
+        target = MusicCollection.songs[songIndex];
         CreateInitialPopulation();
         AssessPopulation();
         playing = false;
@@ -159,7 +160,7 @@ public class GAManager : MonoBehaviour
 
 
             p.attempt = (int[,]) target.Clone();
-            /*
+            
             for(int j = 0; j < p.attempt.GetLength(0); j++)
             {
                 for(int k = 0; k < p.attempt.GetLength(1); k++)
@@ -170,7 +171,7 @@ public class GAManager : MonoBehaviour
                     }
                 }
             }
-            */
+            
             population.Add(p);
         }
     }
