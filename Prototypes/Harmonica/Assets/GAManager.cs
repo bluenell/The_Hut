@@ -22,7 +22,7 @@ public class GAManager : MonoBehaviour
     {
         music = GetComponent<MusicLibrary>();
         population = new List<Performance>();
-        target = MusicCollection.songs[1];
+        target = MusicCollection.songs[2];
         CreateInitialPopulation();
         AssessPopulation();
         playing = true;
@@ -153,7 +153,10 @@ public class GAManager : MonoBehaviour
         for(int i = 0; i < popSize; i++)
         {
             Performance p = new Performance();
+
+
             p.attempt = (int[,]) target.Clone();
+            /*
             for(int j = 0; j < p.attempt.GetLength(0); j++)
             {
                 for(int k = 0; k < p.attempt.GetLength(1); k++)
@@ -164,6 +167,7 @@ public class GAManager : MonoBehaviour
                     }
                 }
             }
+            */
             population.Add(p);
         }
     }
