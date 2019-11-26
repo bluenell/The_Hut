@@ -32,6 +32,7 @@ public class MusicLibrary : MonoBehaviour
         MusicCollection.songs = new List<int[,]>();
         MusicCollection.songs.Add(MusicCollection.dixie);
         MusicCollection.songs.Add(MusicCollection.ring);
+        MusicCollection.songs.Add(MusicCollection.smokey);
     }
 
     public bool PlaySample(int[,] voices)
