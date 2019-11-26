@@ -1231,7 +1231,7 @@ MonoBehaviour:
   popSize: 100
   surSize: 15
   evolveMax: 40
-  songIndex: 2
+  songIndex: 1
   mutationRate: 0.05
   playing: 0
 --- !u!1 &2048223981
