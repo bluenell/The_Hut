@@ -12,8 +12,8 @@ public class DayNightCycleManager : MonoBehaviour
 
 	//public float transitionSpeed = 50f;
 
-	float lerpMax = 0.5f;
-		float lerpValue;
+	public float lerpMax = 0.8f;
+	float lerpValue;
 	bool isChanging;
 
 	
@@ -30,7 +30,7 @@ public class DayNightCycleManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+		/*
 		if (Input.GetKeyDown("space") && !isChanging)
 		{
 			isChanging = true;
@@ -39,7 +39,9 @@ public class DayNightCycleManager : MonoBehaviour
 		{
 			ChangeColour();
 		}
+		*/
 
+		ChangeColour();
 
 		//globalLight.color = Color.Lerp(colours[colourArrayIndex], colours[colourArrayIndex + 1], transitionSpeed * Time.deltaTime);
 		//colourArrayIndex++;
@@ -82,6 +84,11 @@ public class DayNightCycleManager : MonoBehaviour
 			globalLight.color = Color.Lerp(colours[firstColor], colours[secondColor], lerpValue);
 		}
 
+
+		if (colourArrayIndex >= colours.Length-1)
+		{
+			colourArrayIndex = 0;
+		}
 	}
 	
 }
