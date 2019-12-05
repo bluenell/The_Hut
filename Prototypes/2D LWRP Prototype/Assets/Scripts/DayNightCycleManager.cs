@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DayNightCycleManager : MonoBehaviour
 {
-	[Range(0, 9)]
+	[Range(0, 24)]
 	public int colourArrayIndex;
+	public Camera camera;
 
 	UnityEngine.Experimental.Rendering.LWRP.Light2D globalLight;
 	public Color[] colours;
@@ -16,12 +18,14 @@ public class DayNightCycleManager : MonoBehaviour
 	float lerpValue;
 	bool isChanging;
 
+	public Text timeText;
+
 	
 
     // Start is called before the first frame update
     void Start()
     {
-
+		
 		globalLight = GetComponent<UnityEngine.Experimental.Rendering.LWRP.Light2D>();
 		globalLight.color = colours[colourArrayIndex];
 		
@@ -42,6 +46,9 @@ public class DayNightCycleManager : MonoBehaviour
 		*/
 
 		ChangeColour();
+
+		timeText.text = (colourArrayIndex.ToString() + ":00");
+
 
 		//globalLight.color = Color.Lerp(colours[colourArrayIndex], colours[colourArrayIndex + 1], transitionSpeed * Time.deltaTime);
 		//colourArrayIndex++;
@@ -82,6 +89,9 @@ public class DayNightCycleManager : MonoBehaviour
 			int firstColor = colourArrayIndex % colours.Length;
 			int secondColor = (colourArrayIndex + 1) % colours.Length;
 			globalLight.color = Color.Lerp(colours[firstColor], colours[secondColor], lerpValue);
+
+			camera.backgroundColor = Color.Lerp(colours[firstColor], colours[secondColor], lerpValue);
+
 		}
 
 
