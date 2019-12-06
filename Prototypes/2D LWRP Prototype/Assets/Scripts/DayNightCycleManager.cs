@@ -14,7 +14,7 @@ public class DayNightCycleManager : MonoBehaviour
 
 	//public float transitionSpeed = 50f;
 
-	public float lerpMax = 0.8f;
+	public float timeScale = 0.8f;
 	float lerpValue;
 	bool isChanging;
 
@@ -85,7 +85,7 @@ public class DayNightCycleManager : MonoBehaviour
 		}
 		else
 		{
-			lerpValue += lerpMax * Time.deltaTime;
+			lerpValue += timeScale * Time.deltaTime;
 			int firstColor = colourArrayIndex % colours.Length;
 			int secondColor = (colourArrayIndex + 1) % colours.Length;
 			globalLight.color = Color.Lerp(colours[firstColor], colours[secondColor], lerpValue);
