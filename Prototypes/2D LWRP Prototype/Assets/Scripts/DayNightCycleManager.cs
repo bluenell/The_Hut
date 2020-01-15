@@ -9,7 +9,7 @@ public class DayNightCycleManager : MonoBehaviour
 	public int colourArrayIndex;
 	public Camera camera;
 
-	UnityEngine.Experimental.Rendering.LWRP.Light2D globalLight;
+	UnityEngine.Experimental.Rendering.Universal.Light2D globalLight;
 	public Color[] colours;
 
 	//public float transitionSpeed = 50f;
@@ -26,12 +26,13 @@ public class DayNightCycleManager : MonoBehaviour
     void Start()
     {
 		
-		globalLight = GetComponent<UnityEngine.Experimental.Rendering.LWRP.Light2D>();
+		globalLight = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
 		globalLight.color = colours[colourArrayIndex];
 		
     }
 
-    // Update is called once per frame
+    [ExecuteInEditMode]
+	// Update is called once per frame
     void FixedUpdate()
     {
 		/*
